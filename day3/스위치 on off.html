@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>스위치 on off</title>
+<style>/*누구를 어떻게 할지에 대한 문법으로 구성됨*/
+input{
+	width:200px;
+	height:60px;
+	background:#6600ff; /*팔레트를 사용*/
+	font-size:20pt;
+	color: #ffffff;
+	font-weight:bold;
+}
+
+body{ 
+	background:blue;
+
+}
+</style>
+
+<script>
+	var bg;	//배경색을 결정하는 변수!!
+	var flag=false; //현재 상태가 켜져 있는지, 꺼져있는지 판단하기 위한 변수!!
+	function switchOn()//문서에 적용된 스타일 백그라운드를 노란색으로 적용한다.
+	{
+	document.body.style.background="yellow";
+	} 
+
+	function switchOff()// 문서에 적용된 스타일 백그라운드를 검정색으로 적용한다.
+	{
+	document.body.style.background="black";
+	}
+	
+	function toggle()
+	{
+	
+//bg=(flag)? "black":"yellow";
+
+if(flag)
+		{bg="black";}
+		else{bg="yellow";}
+	{
+	document.body.style.background=bg; //bg는 변수이다!! ""하는 거 아니다.
+	flag=!(flag);
+	}
+
+</script>
+</head>
+<body>
+<input type="button" value="on" onclick="switchOn()">
+<input type="button" value="off" onclick="switchOff()">
+<input type="button" value="onetouch" onclick="toggle()">
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script>
+	var x=1;
+	function next(){
+		x=x+1;
+		console.log(x)
+
+		if(x>=19){
+			x=1;
+		}
+		else{
+			x=x;
+		}
+		setTimeout("next()",100);
+	
+		document.getElementById("pic").src="../images/warior/image"+x+".png"
+	}
+	</script>
+
+</head>
+<body>
+	<input type="button" value="펄럭이기" onclick="next()"><br>
+	<img src="../images/warior/image1.png" id="pic">
+
+</body>
+</html>

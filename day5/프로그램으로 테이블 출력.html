@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>이중 for문 프로그램으로 테이블 출력</title>
+</head>
+<script>
+var f=prompt("층수를 입력하세요");
+var h=prompt("호수를 입력하세요");
+var w=prompt("건물의 두께를 입력하세요");
+var wid=prompt("건물의 가로폭을 입력하세요");
+
+document.write("<table border=\""+w+"px\">");
+for(var z=1; z<=f; z++){
+	document.write("<tr>");
+
+	for(var i=1; i<=h; i++){
+	document.write("<td width=\""+wid+"px\">"+(z+"0"+i)+"호 </td>");
+	}
+document.write("</tr>");
+}
+document.write("</table>");
+</script>
+<body>
+</body>
+</html>

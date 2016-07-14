@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>자동 겔러리</title>
+<style>
+#wrapper{
+	width:600px;
+	height:650px;
+	background:yellow;
+	margin:auto;
+}
+#controller{
+	width:100%;
+	height:50px;
+	background:blue;
+	/*div 안쪽의 내용물에 대한 중앙정렬*/
+	text-align:center;
+}
+/*한칸 띄우면, 안쪽의 하위 요소를 의미..*/
+#controller img{
+	width:70px;
+}
+#bt_prev{
+	transform:rotate(180deg);
+}
+</style>
+<script>//문서내의 큰 이미지의 scr를 변경하자!!
+var x=1;
+var flag=true;
+function next(){
+	if(flag){
+		x=x+1;
+	}else{
+		x=x-1;
+	}
+	
+	
+	if(x==10||x==1){
+		flag=!flag;
+	}
+	
+	document.getElementById("big").src="../images/"+x+".jpg";
+	
+}
+	
+//자동이란 단지, 우리가 정의해놓은 함수를 인간이 아닌 시스템이 대신 호출해 주는 것 뿐이다.!!
+function auto(){//자동 호출부탁!!
+	setInterval("next()",1000); //1000=1초 간격, 2000=2초 간격
+	
+}
+	
+		
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<img src="../images/1.jpg" width="100%" id="big">
+	<div id="controller">
+		<img src="../images/bt.png" id="bt_prev">
+		<img src="../images/auto.png" id="bt_auto" onClick="auto()">
+		<img src="../images/bt.png" id="bt_next" onClick="next()">
+	</div>
+</div>
+
+</body>
+</html>

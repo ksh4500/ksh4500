@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>배열 이용 갤러리</title>
+</head>
+<style>
+#wrapper{
+	width:450px;
+	height:500px;
+	border:2px solid red;
+	margin:auto;
+}
+
+#button{
+	width:100%;
+	height:120px;
+	background:blue;
+	font-size:50pt;
+	text-align:center;
+	color:white;
+}
+
+
+</style>
+
+<script>//배열 선언!!
+
+var photo = new Array();
+photo[0]="betmanauto.jpg";
+photo[1]="blackauto.jpg";
+photo[2]="grayauto.jpg";
+photo[3]="green auto.jpg";
+photo[4]="purpleauto.jpg";
+photo[5]="redauto.jpg";
+photo[6]="whiteauto.jpg";
+photo[7]="whiteauto2.jpg";
+photo[8]="yellowauto.jpg";
+photo[9]="yellowcheap.jpg";
+var x=0;
+function next(){
+	var big=document.getE
+	for(i=0; i<10; i++){
+		x++;
+		document.getElementById("big").src="../images/photo[x].jpg";
+	}
+	
+}
+
+
+
+
+</script>
+<body>
+<div>
+	<div id="wrapper">
+		<img src="../images/betmanauto.jpg" width="100%" id="big">
+		<div id="button">
+		<input type="button" value="◀" onClick="back()">
+		<input type="button" value="▶" onClick="next()">
+		</div>
+	</div> 
+
+</body>
+</html>

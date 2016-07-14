@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>부드러운 움직임</title>
+<style>
+#pica	{
+	position:absolute;
+	left:0px;
+	top:200px;
+	}
+</style>
+<script>
+var pica;
+var targetX=700;//피카추가 도달할 목표지점!!
+var targetY=0;
+var a=0.9;
+function init(){
+	pica=document.getElementById("pica");
+	pica.style.left=targetX-a*(targetX-parseInt(pica.style.left))+"px";//목표지점 - 비율계수*(목표지점-나의위치);
+	pica.style.top=targetY-a*(targetY-parseInt(pica.style.top))+"px";
+	console.log(pica.style.left);
+	setTimeout("init()",10);
+}
+function move(){
+	targetX=event.clientX;
+	targetY=event.clientY;
+}
+</script>
+</head>
+<body onLoad="init()" onMouseMove="move()">
+<div style="width:100%; height:800px"> 
+	<img src="../images/mario.png" width="100" id="pica" style="position:absolute;left:0px;top:200px;">
+</div>
+</body>
+</html>

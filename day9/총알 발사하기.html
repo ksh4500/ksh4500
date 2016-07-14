@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>총알 발사하기</title>
+<style>
+body{margin:0px;}
+#stage{
+	width:100%;
+	height:800px;
+	background:yellow;
+}
+
+</style>
+<script src="../lib/Bullet.js">//총알 코드 불러오기, 따로 사용해야함</script>
+<script>
+/*총알을 정의한다!!*/
+var stage;
+
+function init(){
+	stage=document.getElementById("stage");
+	//프로그래밍에서 이벤트 핸들러를 적용할때..
+	window.addEventListener("keydown",function(){
+		//alert(event.keyCode+"키보드 눌렀어?");
+		if(event.keyCode==32){
+			var b=new Bullet(200);
+			b.init();//b가 소유한 init()메서드 호출!!
+		}
+	});
+	//거푸집에서 총알 한개를 생성!!
+	/*for(var i=0;i<1000 ;i++ )
+	{	
+	var b=new Bullet(i*50);
+	b.init();
+	}*/
+}
+
+/*아래의 코드는 지금 당장 사용할 총알 자체가 아닌, 장차 총알을 생성해낼 틀이다.!!*/
+var Bullet=function(posY){
+	//객체의 특징에 대한 값을 담고 있다고, 속성이라 한다.
+	//property라 표기한다.
+	this.span;
+	this.x=100;
+	this.y=posY;
+
+
+	//객체안에 들어있는 함수는 메서드라 한다!!
+	//method(방법) : 객체의 동작 방식을 결정하는 로직이 들어있기 때문..
+	this.init=function(){
+		this.span=document.createElement("span");
+		this.span.innerText="●";
+		this.span.style.color="red";
+		this.span.style.position="absolute";
+		this.span.style.left=this.x+"px";
+		this.span.style.top=this.y+"px";
+		stage.appendChild(this.span);
+
+		this.move();
+	     }
+	this.move=function(){
+		var me=this;
+		this.x+=10;
+		this.span.style.left=this.x+"px";
+		setTimeout(function(){
+			me.move()},100);
+		}
+}
+</script>
+</head>
+<body onLoad="init()">
+<div id="stage"></div>
+</body>
+</html>

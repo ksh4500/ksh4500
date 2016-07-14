@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<script>
+	var x=1;
+	
+//개발자가 원할 때, 호출하면 작동되는 코드영역을 함수라 부른다.
+//함수는 불러야 일한다!!
+function next(){//구글의 개발자 도구 내의 콘솔 영역에 문자열을 출력!!, 개발시 디버깅(오류잡을 때) 목적으로 사용
+	x++;
+	console.log("../images/"+x+".jpg");
+
+	//문서내의 이미지의 src경로를 바꾸자!!
+	document.getElementById("photo").src="../images/"+x+".jpg";//캐멀기법 단어와 단어가 만나면 뒷단어의 첫 철자는 대문자로 표기하는 기밥이 개발자들 사이에 암묵적 약속이 되어버림...
+}
+
+//이전 사진 보여주기 함수 정의
+function prev()
+{
+	x--;	
+	document.getElementById("photo").src="../images/"+x+".jpg";
+}
+</script>
+</head>
+<body>
+
+<img src="../images/1.jpg " WIDTH="450px" id="photo"><br>
+<input type="button" value="이전사진" onclick="prev()">
+<input type="button" value="다음사진" onclick="next()">
+</body>
+</html>

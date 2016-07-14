@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>이미지 들고다니기</title>
+</head>
+<script>
+function init(){
+	document.getElementById("txt").value="사과";
+	window.open("http://www.daum.net","pop", "width=500", "height=400");
+}
+</script>
+
+
+
+<body OnLoad=" init() ">
+
+
+
+
+<!--<img src="../images/warior/2.jpg" onDblClick="alert('더블클릭했어?');"  width=200px onmouseout="alert('벗어났어?')" onmouseover="alert('올렸어?');">
+
+<input type="text" onBlur="alert('커서가 벗어났어!!')"onFocus="alert('커서 올렸어?');">-->
+
+<input type="text" id="txt" onChange="alert('변경했어?')">
+
+<select onChange="alert('바꿨어?');">
+	<option>네이버</option>
+	<option>구글</option>
+	<option>다음</option>
+</select>
+</body>
+</html>
+

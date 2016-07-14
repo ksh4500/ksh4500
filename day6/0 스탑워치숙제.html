@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>스탑워치 숙제</title>
+</head>
+<script>//문서가 모두 읽혀졌으므로, 아래의 txt 요소를 접근할 수 있는 시점
+var ss=0;//초를 담는 전역변수!! 왜 전역인가?? 누적되야하므로..
+var mm=0;
+var hh=0;
+
+//txt의 기존값을 증가값으로 대입
+function init(){
+	document.getElementId("txt").value=0;
+}
+function init(){
+	document.getElementId("txt2").value=0;
+}
+
+function init(){
+	document.getElementId("txt3").value=0;
+}
+
+
+var st;
+function start(){
+	ss++;
+	document.getElementById("txt3").value=ss;
+	st=setTimeout("start()", 1);
+	document.getElementById("bt_start").disabled=true;
+
+	if(ss>59){
+		ss=0;
+		mm++;
+	}
+	
+	document.getElementById("txt2").value=mm;
+	
+	if(mm>59){
+		mm=0;
+		hh++;
+		}
+	document.getElementById("txt").value=hh;
+
+}
+function stop(){
+	clearTimeout(st); //기존 셋타임 아웃에 의한 자동호출을 중지!
+	document.getElementById("bt_start").disabled=false;
+}
+
+</script>
+
+<style>
+
+#txt2{
+	width:200px;
+	height:100px;
+	font-size:40px;
+	font-weight:bold;
+	color:red;
+	background:green;
+	text-align:right;/*내용물에 대한 우측 정렬*/
+}
+#txt3{
+	width:200px;
+	height:100px;
+	font-size:40px;
+	font-weight:bold;
+	color:red;
+	background:yellow;
+	text-align:right;/*내용물에 대한 우측 정렬*/
+
+}
+
+#txt{
+	width:200px;
+	height:100px;
+	font-size:40px;
+	font-weight:bold;
+	color:red;
+	background:blue;
+	text-align:right;/*내용물에 대한 우측 정렬*/
+}
+</style>
+<body onLoad="init()">
+	<input type="test" id="txt" >
+	<input type="test" id="txt2" >
+	<input type="test" id="txt3" >
+	<input type="button" value="시작"  id="bt_start" onClick="start()">
+	<input type="button" value="정지" id="bt_stop" onClick="stop()">
+
+</body>
+</html>

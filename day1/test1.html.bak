@@ -1,0 +1,16 @@
+<!doctype html>  <!--html5최신버전-->
+<html>
+<head><!--브라우저의 상단 헤더 영역, 내용이 나오는 곳이 아님 주로 설정이나 제목등을 작성-->
+<title>문서의 제목영역</title>
+<style>
+font{
+font-size:500pt;
+}
+</style>
+</head>
+<body> <!--문서의 내용이 나올 곳-->
+<font color='red' size="10pt">html</font size>은 전자문서로서,<br> <!--br은 감쌀 대상이 없다, 디자인 css-->
+파일의 확장자는 .html or htm으로 해야한다.
+
+</body>
+</html>

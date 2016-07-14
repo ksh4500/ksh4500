@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>우편번호 검색</title>
+</head>
+<script>
+
+//새창에서 선택한 현재의 우편번호 텍스트를, 부모 윈도우의 우편번호 입력란에 채워넣는다!!+주소도 채워넣는다
+function setPost(zip, addr){
+	var arr=zip.split("-");	
+	//zip으로 넘어온 데이터가 아직 분리되어 있지 않으므로, 분리시켜서 opener 윈도우에 알맞게 넣어주자
+	opener.document.form1.zipcode1.value=arr[0];
+	opener.document.form1.zipcode2.value=arr[1];
+	opener.document.form1.addr1.value=addr;
+	window.close();//현재 창 닫기!!
+	opener.document.form1.addr2.focus();
+}
+</script>
+<body>
+<table width="100%" border="1px">
+	<tr>
+		<td colspan="2" align="center">
+			<input type="text">
+			<img src="/images/search.png" width="30px" >
+			<input type="button" value="검색">	
+		</td>	
+	</tr>
+	<tr>
+		<td>우편번호</td>
+		<td>주소</td>
+	</tr>
+	<tr onMouseOver="this.style.background='#9999ff'" onMouseOut="this.style.background=''">
+		<td><a href="javascript:setPost('123-456','서울 강남구 신사동 도화빌딩')">123-456</a></td>
+		<td>서울 강남구 신사동 도화빌딩</td>
+	</tr>
+	<tr onMouseOver="this.style.background='#9999ff'" onMouseOut="this.style.background=''">
+		<td><a href="javascript:setPost('789-148','울 강남구 역삼동 멀티캠퍼스')">789-148</a></td>
+		<td>서울 강남구 역삼동 멀티캠퍼스</td>
+	</tr>
+	<tr onMouseOver="this.style.background='#9999ff'" onMouseOut="this.style.background=''">
+		<td><a href="javascript:setPost('536-465','안성 기솔리 삼죽면')">536-465</a></td>
+		<td>안성 기솔리 삼죽면</td>
+	</tr>
+	<tr onMouseOver="this.style.background='#9999ff'" onMouseOut="this.style.background=''">
+		<td><a href="javascript:setPost('123-253','대전 둔산동')">123-253</a></td>
+		<td>대전 둔산동</td>
+	</tr>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2차원 배열</title>
+<script>
+var fruit=["사과","딸기","바나나","오렌지"];
+var movie=["워크","정글","시빌워","곡성"];
+var car=["페라리","bmw","아우디","벤츠"];
+var box= new Array();
+	box[0]=fruit;
+	box[1]=movie;
+	box[2]=car; //box는 이차원배열화 되었음!!
+	//과일을 출력한다!	
+	for(x=0; x<box.length; x++){
+		for(i=0; i<box[x].length; i++){
+			document.write(box[x][i]+"<br>");//층수(바깥쪽) 먼저 
+		}
+	}
+	/*for(i=0; i<box[1].length; i++){
+		document.write(box[1][i]+"<br>");
+	}
+	for(i=0; i<box[2].length; i++){
+		document.write(box[2][i]+"<br>");
+	}*/
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>겔러그</title>
+<style>
+body{margin:0px;}
+#stage{
+	width:1000px;
+	height:800px;
+	background-image:url("../images/gallerxy/bg.png")
+
+}
+</style>
+<script src="../lib/hero.js"></script>
+<script src="../lib/Enemy.js"></script>
+<script src="../lib/Bullet2.js"></script>
+<script src="../lib/lib.js"></script>
+
+<script>
+var stage;
+var bgY=0;
+var hero;
+//전체 적군을 담을 배열 선언!!
+var allArray=new Array();
+
+
+var kingArray=new Array(10); //대왕 파란, 녹색파리 넣기
+var enemyArray=new Array(90); //졸병 파란, 빨간 파리넣기
+
+allArray[0]=kingArray;
+allArray[1]=enemyArray;
+
+var enemyImg=[
+	"../images/gallerxy/blue_king.png",
+	"../images/gallerxy/green_king.png",
+	"../images/gallerxy/enermy1.png",
+	"../images/gallerxy/enermy2.png",
+];
+window.addEventListener("load",function(){
+	stage=document.getElementById("stage");
+
+	bgEffect();
+//주인공등장
+	hero=new Hero(stage,50,50,500-25,730);
+	hero.init();
+//빨간적군등장
+	var redY=0;
+	var redCount=0;
+	var enemyIndex=0;
+
+//대왕파리
+	for(var i=0;i<10;i++){
+		if(i==(kingArray.length/2)){
+			enemyIndex++;
+		}
+		var king = new Enemy(stage,70,70,100+(i*70),50,enemyImg[enemyIndex]);
+		king.init();
+		
+		//대왕파리 배열에 담기!!!
+		kingArray[i]=king;
+
+		console.log("메모리에 올라온 대왕파리수는 "+kingArray.length);
+	}
+
+	//빨간파리
+	var index=2;
+	for(var i=0;i<90;i++){
+	if(i%15==0){
+			redY++;
+			redCount=0;
+	}	
+	var enemy;
+		if(redY <=3){
+			enemy = new Enemy(stage,30,30,100+(redCount*50),80+(redY*50),enemyImg[2]);
+		}else{
+			enemy = new Enemy(stage,30,30,100+(redCount*50),80+(redY*50),enemyImg[3]);
+		}
+		enemy.init();
+		redCount++;
+		//적군담기!!
+		enemyArray[i]=enemy;
+		console.log("생성된 졸병파리의 수는"+enemyArray.length);
+	}	
+});
+//키보드 입력처리!!
+window.addEventListener("keydown", function(){
+	var key=event.keyCode;//입력한 아스키코드값!!
+	switch(key){//소괄호에 조건 판단 대상이 되는 데이터!!
+		case 37:hero.velX=-2;break;
+		case 39:hero.velX=+2;break;
+		case 32:fire();break;
+	}	
+	/*if(key==37){
+		//좌측이동!!
+		alert("왼쪽을 원해?")
+	}else if(key==39){//우측이동
+		alert("오른쪽을 원해?")
+	}else if(key==32){
+		alert("발사를 원해?")
+	}*/
+});
+window.addEventListener("keyup", function(){
+		hero.velX=0;		
+});
+function bgEffect(){
+	bgY+=2;
+	stage.style.backgroundPosition="0px "+bgY+"px";
+	setTimeout("bgEffect()",10);
+}
+//총알 발사 함수 정의
+function fire(){
+	//스페이스바 누를때마다 총알 인스턴스 생성!!
+	//인스턴스란? 객체지향 언어에서 클래스라는 거푸집으로부터 메머리에 생성되는 객체 1단위!!
+	var bullet=new Bullet2(stage,10,20,hero.x+(hero.width/2)-3,hero.y);
+	bullet.init();	
+}
+//파리 배열 테스트
+var testCount=0;
+function test(){
+	stage.removeChild(enemyArray[testCount].img);
+	testCount++;
+}
+</script>
+</head>
+<body>
+<div id="stage"></div>
+</body>
+</html>

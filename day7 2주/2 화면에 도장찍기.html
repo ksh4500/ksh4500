@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>화면에 도장찍기</title>
+	<style>
+	body{
+		margin:0px;
+		}
+	div{
+		background:yellow;
+		height:800px;
+	}
+	</style>
+<script>//마우스를 클릭하면, 동적으로(=runtime:실행시) 원하는 tag를 올려놓자!!
+	var wrapper;	
+	var w=100;//도장의 가로폭! 너비!!
+	var h=100;
+	function init(){/*결론 문자열로 도장찍기는 무리가 있다. 왜?? 위치문제도 그렇고 누적부분도 문제다 문서내에 태그를 생성하여 부착하자!!문서내에 태그를 생성하여 부착하자!!*/
+		wrapper=document.getElementById("wrapper");
+	}		
+	    function stamp(){//div 안에다가 이미지를 출력하자!!
+			//wrapper.innerHTML="<img src=\"../images/stamp.png\">";*/
+			var img=document.createElement("img");
+			img.src="../images/stamp.png";//생성된 이미지 경로 등록
+			img.style.width=100+"px";
+			img.style.height=h+"px";
+			img.style.position="absolute";
+			img.style.left=(event.clientX-w/2)+"px";//마우스 클릭시의 x좌표
+			img.style.top=(event.clientY-h/2)+"px";//마우스 클릭시의 y좌표
+			//div에 부착한다. 
+			wrapper.appendChild(img);
+	}
+</script>
+</head>
+<body onLoad="init()"  onMouseDown="stamp()">
+<div id="wrapper"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>String 내장객체</title>
+</head>
+<script>
+/*자바스크립트 자체적으로 내장된 객체가 몇개 있는데 그중 String 객체를 학습한다!!
+주의) 모든 객체가 생성시 new를 요구하는 것은 아니다.
+명시적(explicit),암시적(implicit)*/
+var a="대한민국국국국국";//암시적 묵시적 생성법
+var str="지난... 여름에 찍은 사진.jpg";
+var b="test.png";
+//대부분의 객체지향언어에서는 일단 한번 메모리에 올라온 스트링 객체는 변경이 불가능 하다(immutable)
+var c="   king";
+
+//문자열의 길이를 축출하시오
+document.write("문자열의 길이는"+a.length+"<br>");
+document.write("index 1번의 문자값은"+a.charAt(1)+"<br>");
+for(i=0;i<a.length;i++){
+document.write("문자열의 길이는"+a.charAt(i)+"<br>");
+}
+document.write("문자열의 길이는"+a.substr(0,4)+"<br>");
+document.write("문자열의 길이는"+str.substr(6,8)+"<br>");
+//원하는 문자의 index를 추출하시오..
+document.write(a.indexOf("국")+"<br>");
+document.write("가장 마지막에 추출된 인덱스"+a.lastIndexOf("국")+"<br>");
+document.write(a.replace("대","무지큰")+"<br>");
+document.write(str.substring(str.lastIndexOf(".")+1,str.length)+"<br>");
+
+var arr=b.split(".");
+document.write(arr[0]+"<br>");
+document.write(arr[1]+"<br>");
+//test.png를 전부 대문자로 변환하여 출력하시오..
+document.write(b.toUpperCase()+"<br>");
+document.write("공백 제거 전의 길이는"+c.length+"<br>")
+//var s2=c.trim();//공백이 제거된 새로운 문자열을 반환!!
+document.write("공백 제거 후의 길이는"+s2.length+"<br>")
+
+
+
+
+
+
+</script>
+<body>
+
+</body>
+</html>
